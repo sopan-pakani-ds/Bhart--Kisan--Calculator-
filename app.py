@@ -5,7 +5,7 @@ from datetime import datetime, timedelta
 
 st.set_page_config(page_title="Bharat Kisan Notebook PRO", page_icon="📓", layout="wide")
 
-# ===== 3 LANGUAGES ONLY - NO ERROR =====
+# ===== 3 LANGUAGES ONLY =====
 LANG = {
     "English": {
         "title": "📓 Bharat Kisan NOTEBOOK PRO", "new_page": "➕ Add New Crop Page", "edit": "✏️ Edit", "delete": "🗑️ Delete",
@@ -50,54 +50,4 @@ CROP_DATABASE = {
     "Pomegranate (Dalimb)": {"cat": "Fruit", "yield_q": 60, "beej": 15000, "khat": 15000, "aushad": 12000, "majdoor": 10000, "pani": 5000, "other": 3000},
     "Grapes (Draksha)": {"cat": "Fruit", "yield_q": 100, "beej": 20000, "khat": 20000, "aushad": 15000, "majdoor": 15000, "pani": 6000, "other": 4000},
     "Banana (Keli)": {"cat": "Fruit", "yield_q": 250, "beej": 12000, "khat": 12000, "aushad": 8000, "majdoor": 15000, "pani": 5000, "other": 3000},
-    "Mango (Aam)": {"cat": "Fruit", "yield_q": 80, "beej": 10000, "khat": 8000, "aushad": 6000, "majdoor": 12000, "pani": 4000, "other": 2000},
-    "Cotton (Kapus)": {"cat": "Kharif Crop", "yield_q": 12, "beej": 4000, "khat": 6000, "aushad": 7000, "majdoor": 6000, "pani": 2000, "other": 1000},
-}
-
-if 'notebook' not in st.session_state: st.session_state.notebook = []
-if 'editing_id' not in st.session_state: st.session_state.editing_id = None
-
-farmer_name = st.sidebar.text_input(f"👨‍🌾 {T['farmer']}", "Dinkar Kaka, Pakani")
-
-def calc_crop(crop_data, area_guntha, market_rate):
-    area_acre = area_guntha / 40.0
-    total_cost = sum([crop_data[k] for k in ["beej","khat","aushad","majdoor","pani","other"]]) * area_acre
-    total_yield_q = crop_data["yield_q"] * area_acre
-    total_income = total_yield_q * market_rate
-    profit = total_income - total_cost
-    return total_cost, total_income, total_yield_q, profit
-
-# SIDEBAR
-st.sidebar.divider()
-st.sidebar.subheader(T["all_pages"])
-if st.sidebar.button(T["new_page"], type="primary", use_container_width=True):
-    st.session_state.editing_id = "NEW"
-
-total_profit_all = sum([p['profit'] for p in st.session_state.notebook])
-st.sidebar.metric(T["total_profit"], f"Rs {total_profit_all:,.0f}")
-
-for i, page in enumerate(st.session_state.notebook):
-    col1, col2, col3 = st.sidebar.columns([3,1,1])
-    col1.write(f"{i+1}. {page['crop']}")
-    if col2.button(T["edit"], key=f"edit{i}"):
-        st.session_state.editing_id = page['id']; st.rerun()
-    if col3.button(T["delete"], key=f"del{i}"):
-        st.session_state.notebook.pop(i); st.rerun()
-
-# MAIN
-tab1, tab2, tab3 = st.tabs(["🧮 Calculator Page", T["loan"], T["reminder"]])
-
-with tab1:
-    if st.session_state.editing_id:
-        if st.session_state.editing_id == "NEW":
-            st.subheader(T["new_page"])
-            page_data = {"id": str(uuid.uuid4()), "crop": "Tomato", "area": 10, "rate": 3500}
-        else:
-            page_data = next((p for p in st.session_state.notebook if p['id'] == st.session_state.editing_id), None)
-            st.subheader(f"{T['edit']}: {page_data['crop']}")
-
-        cat_filter = st.selectbox(T["cat"], ["All", "Kharif Crop", "Rabi Crop", "Vegetable", "Fruit"])
-        crop_list = list(CROP_DATABASE.keys()) if cat_filter=="All" else [k for k,v in CROP_DATABASE.items() if v["cat"]==cat_filter]
-        selected_crop = st.selectbox(T["crop"], crop_list)
-        area_guntha = st.number_input(T["area"], min_value=1, value=page_data['area'])
-        market_rate = st.number_input(T
+    "Mango (Aam)": {"cat": "Fruit", "yield_q": 80, "beej": 10000, "khat": 8000, "aushad": 6000, "majdoor": 
