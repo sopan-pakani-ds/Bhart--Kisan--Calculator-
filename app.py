@@ -92,7 +92,8 @@ with tab1:
 
         total_cost = sum([beej,khat,aushad,majdoor,pani,other]) * (area/40)
         total_yield = data["yield"] * (area/40)
-        profit = (total_yield * rate) - total_cost
+       total_income = total_yield * rate
+        profit = total_income - total_cost
 
         st.subheader(T["weight"])
         col1,col2,col3,col4 = st.columns(4)
