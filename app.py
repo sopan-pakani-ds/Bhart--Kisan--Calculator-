@@ -9,7 +9,7 @@ st.set_page_config(page_title="Bharat Kisan Notebook", page_icon="📓", layout=
 LANG = {
     "English": {"title": "📓 Bharat Kisan NOTEBOOK", "new": "➕ Add New Crop", "edit": "✏️ Edit", "delete": "🗑️ Delete", "crop": "Select Crop", "cat": "Category", "area": "Area (Guntha)",
         "bhav": "Market Rate Rs/Q", "kharch": "💸 All Charges Per Acre", "beej": "Seed", "khat": "Fertilizer", "aushad": "Pesticide", "majdoor": "Labour", "pani": "Irrigation", "other": "Other",
-        "weight": "📦 Total Yield", "gram": "Gram", "kg": "KG", "quintal": "Quintal", "ton": "Ton", "profit": "✅"शुद्ध लाभ",
+        "weight": "📦 Total Yield", "gram": "Gram", "kg": "KG", "quintal": "Quintal", "ton": "Ton", "profit": "✅ शुद्ध लाभ",
     "total_cost": "💸 एकूण खर्च",  # <-- NAYI LINE
     "total_income": "💰 एकूण उत्पन्न", # <-- NAYI LINE
     "save": "💾 सेव करे",
