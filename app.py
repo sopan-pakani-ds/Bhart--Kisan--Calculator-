@@ -99,7 +99,10 @@ with tab1:
             else: st.session_state.pages[next(i for i,p in enumerate(st.session_state.pages) if p['id']==page['id'])] = new_page
             st.session_state.edit_id = None; st.success("Saved!"); st.rerun()
     else:
-        st.info("Click 'Add New Crop' from sidebar")
+        st.markdown("### शेतकरी मित्रांनो, सुरुवात करण्यासाठी खाली क्लिक करा")
+        if st.button("➕ नवीन पीक जोडा", type="primary", use_container_width=True):
+            st.session_state.edit_id = "NEW"
+            st.rerun()
 
 with tab2:
     st.subheader(T["weather"])
