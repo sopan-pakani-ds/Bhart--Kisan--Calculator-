@@ -9,7 +9,11 @@ st.set_page_config(page_title="Bharat Kisan Notebook", page_icon="📓", layout=
 LANG = {
     "English": {"title": "📓 Bharat Kisan NOTEBOOK", "new": "➕ Add New Crop", "edit": "✏️ Edit", "delete": "🗑️ Delete", "crop": "Select Crop", "cat": "Category", "area": "Area (Guntha)",
         "bhav": "Market Rate Rs/Q", "kharch": "💸 All Charges Per Acre", "beej": "Seed", "khat": "Fertilizer", "aushad": "Pesticide", "majdoor": "Labour", "pani": "Irrigation", "other": "Other",
-        "weight": "📦 Total Yield", "gram": "Gram", "kg": "KG", "quintal": "Quintal", "ton": "Ton", "profit": "✅ Net Profit", "save": "💾 Save Page", "pages": "📚 My Pages", "weather": "🌦️ Weather & Mandi", "loan": "🏦 Loan Calculator", "download": "📥 Download CSV"},
+        "weight": "📦 Total Yield", "gram": "Gram", "kg": "KG", "quintal": "Quintal", "ton": "Ton", "profit": "✅"profit": "✅ शुद्ध लाभ",
+    "total_cost": "💸 एकूण खर्च",  # <-- NAYI LINE
+    "total_income": "💰 एकूण उत्पन्न", # <-- NAYI LINE
+    "save": "💾 सेव करे",
+    "pages": "📚 मेरे पेज", Net Profit", "save": "💾 Save Page", "pages": "📚 My Pages", "weather": "🌦️ Weather & Mandi", "loan": "🏦 Loan Calculator", "download": "📥 Download CSV"},
     "Marathi": {"title": "📓 Bharat Kisan NOTEBOOK", "new": "➕ नवीन पीक जोडा", "edit": "✏️ बदल करा", "delete": "🗑️ हटवा", "crop": "पीक निवडा", "cat": "प्रकार", "area": "क्षेत्र (गुंठा)",
         "bhav": "बाजार भाव Rs/Q", "kharch": "💸 सर्व खर्च प्रति एकर", "beej": "बीज", "khat": "खत", "aushad": "औषध", "majdoor": "मजूर", "pani": "पाणी", "other": "इतर",
         "weight": "📦 एकूण उत्पादन", "gram": "ग्रॅम", "kg": "किलो", "quintal": "क्विंटल", "ton": "टन", "profit": "✅ निव्वळ नफा", "save": "💾 जतन करा", "pages": "📚 माझी पाने", "weather": "🌦️ हवामान व बाजार", "loan": "🏦 कर्ज कॅल्क्युलेटर", "download": "📥 CSV डाउनलोड"},
