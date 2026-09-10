@@ -101,7 +101,12 @@ with tab1:
         col2.metric(T["kg"], f"{total_yield*100:,.0f}")
         col3.metric(T["quintal"], f"{total_yield:.2f}")
         col4.metric(T["ton"], f"{total_yield/10:.2f}")
-        st.metric(T["profit"], f"Rs {profit:,.0f}")
+        st.divider()
+        st.subheader("📊 हिशोब")
+        colA, colB, colC = st.columns(3)
+        colA.metric(T["total_cost"], f"Rs {total_cost:,.0f}")
+        colB.metric(T["total_income"], f"Rs {total_income:,.0f}")
+        colC.metric(T["profit"], f"Rs {profit:,.0f}")
 
         if st.button(T["save"]):
             new_page = {"id": page["id"], "crop": crop, "area": area, "rate": rate, "profit": profit}
