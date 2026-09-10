@@ -43,16 +43,21 @@ CROPS = {
 if 'pages' not in st.session_state: st.session_state.pages = []
 if 'edit_id' not in st.session_state: st.session_state.edit_id = None
 
-# ===== SIDEBAR =====
-st.sidebar.subheader(T["pages"])
-if st.sidebar.button(T["new"], type="primary"):
-    st.session_state.edit_id = "NEW"
+# ===== SIDEBAR SIMPLE =====
+st.sidebar.subheader("📚 " + T["pages"])
+
+if len(st.session_state.pages) == 0:
+    st.sidebar.info("अजून कोणतेही पीक नाही")
 
 for i, p in enumerate(st.session_state.pages):
-    col1, col2, col3 = st.sidebar.columns([4,1,1])
-    col1.write(f"{i+1}. {p['crop']}")
-    if col2.button(T["edit"], key=f"e{i}"): st.session_state.edit_id = p['id']
-    if col3.button(T["delete"], key=f"d{i}"): st.session_state.pages.pop(i); st.rerun()
+    st.sidebar.markdown(f"### {i+1}. {p['crop']}")
+    col1, col2 = st.sidebar.columns(2)
+    if col1.button("✏️ बदल", key=f"e{i}", use_container_width=True): 
+        st.session_state.edit_id = p['id']
+        st.rerun()
+    if col2.button("🗑️ हटवा", key=f"d{i}", use_container_width=True): 
+        st.session_state.pages.pop(i); st.rerun()
+    st.sidebar.divider()
 
 # ===== TABS =====
 tab1, tab2, tab3 = st.tabs([T["crop"], T["weather"], T["loan"]])
