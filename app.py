@@ -148,8 +148,7 @@ with tab2:
     c1,c2,c3=st.columns(3)
     c1.metric("🌡️ Temp", "32°C"); c2.metric("💧 Humidity", "65%"); c3.metric("🌧️ Rain", "60%")
     st.info(f"📍 {loc} - Aaj dhund, kal baarish")
-    st.table(pd.DataFrame({"Crop":["Tomato","Onion","Dalimb","Santra"],"Bha
-v":[3500,2800,5000,4000]})
+    st.table(pd.DataFrame({"Crop":["Tomato","Onion","Dalimb","Santra"],"Bhav":[3500,2800,5000,4000]})
     st.table(pd.DataFrame({"Crop":["Tomato","Onion","Dalimb","Santra"],"Bhav":[3500,2800,5000,4000]}))
 
 with tab3:
